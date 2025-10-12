@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import AuthLayout from "./components/layouts/AuthLayOut";
+import AuthLayout from "./components/layouts/AuthLayout";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import userSlice from "./redux/slices/userSlice";
