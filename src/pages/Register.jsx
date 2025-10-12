@@ -86,7 +86,7 @@ export default function Register() {
         <Button text={"Register"} disabled={isSubmitting} />
         <div className=" flex gap-2 justify-center mt-[10px] flex-wrap ">
           <p> Already have an account?</p>
-          <Link className="text-blue-600" to={"/register"}>
+          <Link className="text-blue-600" to={"/login"}>
             Login
           </Link>
         </div>
