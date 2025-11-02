@@ -11,6 +11,8 @@ import { API } from "./utils/path";
 import { getApiHeaders } from "./utils/helper";
 import MainLayout from "./components/layouts/MainLayout";
 import { Navigate } from "react-router";
+import MyFlights from "./pages/MyFlights";
+import Destination from "./pages/Destination";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +62,8 @@ function App() {
         <Route path="*" element={<Navigate to={"/"} />} />
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/myflight" element={<MyFlights />} />
+          <Route path="/destination" element={<Destination />} />
         </Route>
       </Routes>
     );
