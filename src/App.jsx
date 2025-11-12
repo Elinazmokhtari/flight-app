@@ -13,6 +13,7 @@ import MainLayout from "./components/layouts/MainLayout";
 import { Navigate } from "react-router";
 import MyFlights from "./pages/MyFlights";
 import Destination from "./pages/Destination";
+import Booking from "./pages/Booking";
 
 function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/myflight" element={<MyFlights />} />
           <Route path="/destination" element={<Destination />} />
+          <Route path="/booking/:id" element={<Booking />} />
         </Route>
       </Routes>
     );
