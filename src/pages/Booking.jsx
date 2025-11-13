@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { getApiHeaders } from "../utils/helper";
+import { toast } from "react-toastify";
 
 const schema = yup
   .object({
@@ -67,6 +68,7 @@ export default function Booking() {
       })
       .then((data) => {
         console.log(data);
+        toast.success("Your flight reserved.", { theme: "colored" });
         navigate("/myflight");
       })
       .catch((err) => console.log(err));
@@ -77,7 +79,7 @@ export default function Booking() {
       {flightData ? (
         <div className="h-[160px] bg-[#0078ff]">
           <div className="w-full h-[60px]   text-white flex items-center  justify-between">
-            <Link to={"/"}>
+            <Link to={"/destinaton"}>
               <ChevronLeftIcon className="size-5 font-bold" />
             </Link>
             <p className=" text-center font-bold text-[17px]">Booking</p>

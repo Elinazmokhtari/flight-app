@@ -4,9 +4,10 @@ import airplane from "../assets/img/airplane.png";
 import airline from "../assets/img/airline.png";
 import moment from "moment";
 import { Link } from "react-router";
-// import moment from "moment";
+import { toast } from "react-toastify";
 
 export default function FlightCard(props) {
+  const token = localStorage.getItem("hey-token");
   console.log(JSON.stringify(props));
   const durationSeconds = parseInt(props.data.duration_seconds);
   console.log(durationSeconds);
@@ -33,7 +34,6 @@ export default function FlightCard(props) {
     moment(props.data.departure_date),
     "day"
   );
-  const token = localStorage.getItem("hey-token");
 
   function handleDelete() {
     fetch("https://hey.mahdisharifi.dev/api/flights/cancel", {
@@ -50,6 +50,7 @@ export default function FlightCard(props) {
       .then((res) => {
         if (res.ok) {
           props.onDelete(props.data.id);
+          toast.error("Your flight has been canceled!", { theme: "colored" });
           return res.json();
         } else {
           console.log("err in ress flightcard ");
