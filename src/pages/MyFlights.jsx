@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FlightCard from "../components/FlightCard";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import Loading from "../components/Loading";
 export default function MyFlights() {
   const token = localStorage.getItem("hey-token");

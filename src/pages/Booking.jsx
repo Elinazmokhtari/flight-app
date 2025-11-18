@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-import { Link, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import BookingCard from "../components/BookingCard";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
