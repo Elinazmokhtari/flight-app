@@ -17,11 +17,6 @@ const schema = yup
   .required();
 
 export default function Booking() {
-  const [formData, setFormData] = useState({
-    count: "",
-    phone_number: "",
-    email: "",
-  });
   const [flightData, setFlightData] = useState(undefined);
   const param = useParams();
   const navigate = useNavigate();
@@ -104,9 +99,6 @@ export default function Booking() {
                   type="text"
                   placeholder="ex: 2"
                   className="w-full py-2 outline-hidden border-b-[1px] border-[#3C3C434D] "
-                  onChange={(e) =>
-                    setFormData({ ...formData, count: e.target.value })
-                  }
                   {...register("count")}
                 />
                 {errors.count?.message ? (
@@ -119,9 +111,6 @@ export default function Booking() {
                   type="text"
                   placeholder="Enter Phone number"
                   className="w-full py-2 outline-hidden border-b-[1px] border-[#3C3C434D]"
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone_number: e.target.value })
-                  }
                   {...register("phone_number")}
                 />
 
@@ -137,9 +126,6 @@ export default function Booking() {
                   type="text"
                   placeholder="Email to receive booking info"
                   className="w-full py-2 outline-hidden border-b-[1px] border-[#3C3C434D]"
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
                   {...register("email")}
                 />
                 {errors.email?.message ? (
@@ -163,7 +149,6 @@ export default function Booking() {
           <div className="w-full h-[60px] bg-white  p-4 flex  justify-between items-center mt-5">
             <div>
               <p>${flightData.price}</p>
-              <p>Adult count :{formData.count}</p>
             </div>
             <button
               className="px-6.5 py-2 bg-[#00e89d] rounded-4xl text-white"

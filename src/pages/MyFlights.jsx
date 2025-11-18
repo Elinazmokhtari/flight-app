@@ -41,7 +41,7 @@ export default function MyFlights() {
   return (
     <div className="">
       <div className="w-full h-[60px] bg-white flex items-center  justify-between">
-        <Link to={"/booking"}>
+        <Link to={"/"}>
           <ChevronLeftIcon className="size-5 font-bold" />
         </Link>
         <p className=" text-center font-bold text-[17px]">My Flights</p>

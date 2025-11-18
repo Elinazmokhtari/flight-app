@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Filter from "../components/Filter";
 import Cities from "../components/Cities";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const token = localStorage.getItem("hey-token");
@@ -35,7 +36,9 @@ export default function Home() {
           <Cities cities={citiesData} />
         </>
       ) : (
-        "loading"
+        <div className="mt-[100px]">
+          <Loading />
+        </div>
       )}
     </div>
   );

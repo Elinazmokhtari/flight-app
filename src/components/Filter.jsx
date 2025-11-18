@@ -4,6 +4,7 @@ import calenadr from "../assets/img/calendar.png";
 import moment from "moment";
 import { useNavigate } from "react-router";
 import Button from "./Button";
+import { toast } from "react-toastify";
 
 export default function Filter(props) {
   const [filter, setFilter] = useState({
@@ -26,14 +27,14 @@ export default function Filter(props) {
         `/destination?from_city=${filter.from_city}&to_city=${filter.to_city}&from_date=${filter.from_date}&to_date=${filter.to_date}`
       );
     } else {
-      console.log("complete fields");
+      toast.error("Please fill all fields");
     }
   }
 
   return (
     <div className="flex flex-col gap-2 mt-6 mb-6">
       <div className="h-[88px] flex justify-between  gap-1 *:p-2 relative  ">
-        <div className="border border-[#DCDFE6] rounded-l-[10px] w-full relative ">
+        <div className="border border-[#DCDFE6] rounded-l-[10px] w-full flex flex-col  relative z-10 ">
           <select
             onChange={(e) =>
               setFilter({ ...filter, from_city: e.target.value })
@@ -59,14 +60,23 @@ export default function Filter(props) {
           <p className="font-bold text-[#3C3C4399] text-[13px]">city</p>
         </div>
         <div className=" w-full flex justify-center absolute top-[20px] ">
-          <div className="size-8 bg-[#0078FF] flex justify-center items-center rounded-full z-1">
+          <div
+            className="size-8 bg-[#0078FF] flex justify-center items-center rounded-full z-20"
+            onClick={() =>
+              setFilter({
+                ...filter,
+                from_city: filter.to_city,
+                to_city: filter.from_city,
+              })
+            }
+          >
             <ArrowsRightLeftIcon className="size-5 text-white" />
           </div>
         </div>
         <div className="border border-[#DCDFE6] rounded-r-[10px] w-full flex flex-col text-right  relative">
           <select
             onChange={(e) => setFilter({ ...filter, to_city: e.target.value })}
-            className="absolute top-0 left-0 bg-amber-700 w-full h-full opacity-0"
+            className="absolute top-0 left-0  w-full h-full opacity-0 "
           >
             <option>choose city</option>
             {props.cities
@@ -121,7 +131,7 @@ export default function Filter(props) {
           </div>
         </div>
       </div>
-      <Button text={"Search"} onClick={handleCheckData()} />
+      <Button text={"Search"} onClick={handleCheckData} />
     </div>
   );
 }

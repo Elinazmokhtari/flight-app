@@ -14,6 +14,7 @@ import { Navigate } from "react-router";
 import MyFlights from "./pages/MyFlights";
 import Destination from "./pages/Destination";
 import Booking from "./pages/Booking";
+import Loading from "./components/Loading";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,7 +43,11 @@ function App() {
   }, []);
 
   if (user === undefined) {
-    return <p>loading</p>;
+    return (
+      <div className="w-screen h-screen">
+        <Loading />
+      </div>
+    );
   }
 
   if (user === null) {
