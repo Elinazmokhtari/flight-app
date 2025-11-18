@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function DestinationCard(props) {
   return (
-    <div className="w-[140px] flex flex-col shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] rounded-[10px] overflow-hidden shrink-0">
+    <div className="w-[140px] flex flex-col shadow-[0_4px_20px_-5px_rgba(0,0,0,0.1)] rounded-[10px] overflow-hidden shrink-0 bg-white">
       <img src={props.city.image} alt="" className="h-[194px] object-cover" />
 
       <div className="p-2">

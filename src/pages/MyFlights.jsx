@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import FlightCard from "../components/FlightCard";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-import { Link } from "react-router";
-
+import { Link, useNavigate } from "react-router";
+import Loading from "../components/Loading";
 export default function MyFlights() {
   const token = localStorage.getItem("hey-token");
   const [myflightsData, setMyFlightsData] = useState(undefined);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("https://hey.mahdisharifi.dev/api/my/flights", {
       method: "get",
@@ -40,17 +41,18 @@ export default function MyFlights() {
 
   return (
     <div className="">
-      <div className="w-full h-[60px] bg-white flex items-center  justify-between ">
-        <Link to={"/"}>
-          <ChevronLeftIcon className="size-5 font-bold" />
-        </Link>
+      <div className="w-full h-[60px] bg-white flex items-center  justify-between px-4">
+        <div onClick={() => navigate(-1)}>
+          <ChevronLeftIcon className="size-8 font-bold" />
+        </div>
+
         <p className=" text-center font-bold text-[17px]">My Flights</p>
-        <div></div>
+        <div className="w-8"></div>
       </div>
       <div className="p-4 flex flex-col gap-4">
         {myflightsData ? (
           myflightsData.length === 0 ? (
-            <p>no flights</p>
+            <p className="text-[#0078FF] text-center">no flights</p>
           ) : (
             myflightsData.map((item, index) => {
               return (
@@ -64,7 +66,9 @@ export default function MyFlights() {
             })
           )
         ) : (
-          "loading"
+          <div className="mt-4">
+            <Loading />
+          </div>
         )}
       </div>
     </div>

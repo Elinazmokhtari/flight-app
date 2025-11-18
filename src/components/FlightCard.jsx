@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
 import airplane from "../assets/img/airplane.png";
 import airline from "../assets/img/airline.png";
@@ -35,7 +35,10 @@ export default function FlightCard(props) {
     "day"
   );
 
+  const [loading, setLoading] = useState(false);
+
   function handleDelete() {
+    setLoading(true);
     fetch("https://hey.mahdisharifi.dev/api/flights/cancel", {
       method: "DELETE",
       headers: {
@@ -51,6 +54,7 @@ export default function FlightCard(props) {
         if (res.ok) {
           props.onDelete(props.data.id);
           toast.error("Your flight has been canceled!", { theme: "colored" });
+
           return res.json();
         } else {
           console.log("err in ress flightcard ");
@@ -59,7 +63,8 @@ export default function FlightCard(props) {
       .then((data) => {
         console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -114,6 +119,7 @@ export default function FlightCard(props) {
           {props.cancelButton ? (
             <Button
               text={"Cancel"}
+              disabled={loading}
               className={"bg-red-500"}
               onClick={(e) => {
                 e.preventDefault();

@@ -34,7 +34,7 @@ export default function Filter(props) {
   return (
     <div className="flex flex-col gap-2 mt-6 mb-6">
       <div className="h-[88px] flex justify-between  gap-1 *:p-2 relative  ">
-        <div className="border border-[#DCDFE6] rounded-l-[10px] w-full flex flex-col  relative z-10 ">
+        <div className="border border-[#DCDFE6] rounded-l-[10px] w-full flex flex-col  relative z-10 bg-white ">
           <select
             onChange={(e) =>
               setFilter({ ...filter, from_city: e.target.value })
@@ -73,7 +73,7 @@ export default function Filter(props) {
             <ArrowsRightLeftIcon className="size-5 text-white" />
           </div>
         </div>
-        <div className="border border-[#DCDFE6] rounded-r-[10px] w-full flex flex-col text-right  relative">
+        <div className="border border-[#DCDFE6] rounded-r-[10px] w-full flex flex-col text-right  relative bg-white">
           <select
             onChange={(e) => setFilter({ ...filter, to_city: e.target.value })}
             className="absolute top-0 left-0  w-full h-full opacity-0 "
@@ -117,7 +117,7 @@ export default function Filter(props) {
             className=" w-full h-full absolute top-0 left-0 opacity-0"
           ></input>
         </div>
-        <div className="w-full flex flex-col relative">
+        <div className="w-full flex flex-col relative bg-white">
           <p className="text-[#3C3C4399] text-[14px]">Return</p>
           <input
             type="date"

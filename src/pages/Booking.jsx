@@ -76,7 +76,7 @@ export default function Booking() {
         <div className="relative ">
           <div className=" h-[160px] bg-[#0078ff] absolute top-0 left-0 w-full ">
             <div className="w-full h-[60px]   text-white flex items-center  justify-between px-4">
-              <div onClick={() => navigate(-1)}>
+              <div onClick={() => navigate(-1)} className="relative z-100">
                 <ChevronLeftIcon className="size-8 font-bold" />
               </div>
               <p className=" text-center font-bold text-[17px]">Booking</p>
