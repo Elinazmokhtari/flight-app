@@ -40,7 +40,7 @@ export default function MyFlights() {
 
   return (
     <div className="">
-      <div className="w-full h-[60px] bg-white flex items-center  justify-between">
+      <div className="w-full h-[60px] bg-white flex items-center  justify-between ">
         <Link to={"/"}>
           <ChevronLeftIcon className="size-5 font-bold" />
         </Link>
