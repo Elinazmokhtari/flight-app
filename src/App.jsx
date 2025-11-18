@@ -44,7 +44,7 @@ function App() {
 
   if (user === undefined) {
     return (
-      <div className="w-screen h-screen">
+      <div className="w-full h-screen">
         <Loading />
       </div>
     );

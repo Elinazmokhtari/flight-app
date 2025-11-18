@@ -9,7 +9,7 @@ export default function Header() {
       <div className="w-full h-full items-center  flex flex-row justify-between flex-wrap">
         <img className="w-[95px] h-[36px]" src={logo} alt="" />
         <Link to={"/myflight"}>
-          <div className="bg-amber-200 size-10 flex justify-center items-center rounded-full overflow-hidden">
+          <div className="size-10 flex justify-center items-center rounded-full overflow-hidden">
             <img src={user} alt="" />
           </div>
         </Link>

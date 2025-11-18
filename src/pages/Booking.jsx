@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { getApiHeaders } from "../utils/helper";
 import { toast } from "react-toastify";
+import Loading from "../components/Loading";
 
 const schema = yup
   .object({
@@ -72,16 +73,17 @@ export default function Booking() {
   return (
     <div>
       {flightData ? (
-        <div className="h-[160px] bg-[#0078ff]">
-          <div className="w-full h-[60px]   text-white flex items-center  justify-between">
-            <Link to={"/destinaton"}>
-              <ChevronLeftIcon className="size-5 font-bold" />
-            </Link>
-            <p className=" text-center font-bold text-[17px]">Booking</p>
-            <div></div>
+        <div className="relative ">
+          <div className=" h-[160px] bg-[#0078ff] absolute top-0 left-0 w-full ">
+            <div className="w-full h-[60px]   text-white flex items-center  justify-between px-4">
+              <div onClick={() => navigate(-1)}>
+                <ChevronLeftIcon className="size-8 font-bold" />
+              </div>
+              <p className=" text-center font-bold text-[17px]">Booking</p>
+              <div className="w-8"></div>
+            </div>
           </div>
-
-          <div className="m-4  gap-4 ">
+          <div className="gap-4 z-10 relative pt-[90px] px-4 ">
             <BookingCard flightData={flightData} />
           </div>
 
@@ -151,7 +153,9 @@ export default function Booking() {
               <p>${flightData.price}</p>
             </div>
             <button
-              className="px-6.5 py-2 bg-[#00e89d] rounded-4xl text-white"
+              className={`px-6.5 py-2 bg-[#00e89d] rounded-4xl text-white ${
+                isSubmitting ? "opacity-20" : ""
+              }`}
               disabled={isSubmitting}
               type="submit"
               form="booking-form"
@@ -161,7 +165,9 @@ export default function Booking() {
           </div>
         </div>
       ) : (
-        <p>loading</p>
+        <div className="w-full h-screen ">
+          <Loading />
+        </div>
       )}
     </div>
   );
